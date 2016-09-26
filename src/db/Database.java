@@ -1,0 +1,13 @@
+package db;
+
+import java.util.List;
+import java.util.Map;
+
+/**
+ * Created by lost on 27.09.2016.
+ */
+public interface Database {
+    boolean addtoDB (Map<String,List> map, String path);
+    Map<String,List> selectFromDB (String path);
+    boolean createDB();
+}
