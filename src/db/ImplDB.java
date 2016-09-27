@@ -1,12 +1,23 @@
 package db;
 
+import utils.IOutils;
+
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+
+import Exception.*;
 
 /**
  * Created by lost on 27.09.2016.
  */
 public class ImplDB implements Database {
+    private IOutils iOutils;
+
+    public ImplDB() {
+        iOutils=new IOutils();
+    }
+
     @Override
     public boolean addtoDB(Map<String, List> map, String path) {
         return false;
@@ -18,7 +29,13 @@ public class ImplDB implements Database {
     }
 
     @Override
-    public boolean createDB() {
+    public boolean createDB(String path) throws DataBaseCreateException {
+        try {
+            iOutils.touch(path);
+        } catch (IOException e) {
+            throw new DataBaseCreateException("DB not created");
+
+        }
         return false;
     }
 }

@@ -1,16 +1,27 @@
 package model;
 
 
+import utils.Contants;
+
 import java.util.Map;
-import java.util.HashMap;
+import java.util.TreeMap;
 
 /**
  * Created by lost on 27.09.2016.
  */
 public class Stats {
-    Map<String, Integer> statistic;
+    private  Map<String, Integer> statistic;
 
     public Stats() {
-        statistic = new HashMap<>();
+        statistic = new TreeMap<>();
+        statistic.put("Count hands",0);
+    }
+
+    public Map<String, Integer> getStatistic() {
+        return statistic;
+    }
+
+    public void setStatistic(Map<String, Integer> statistic) {
+        this.statistic = statistic;
     }
 }

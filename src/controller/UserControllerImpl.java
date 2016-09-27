@@ -5,7 +5,7 @@ import model.User;
 /**
  * Created by lost on 27.09.2016.
  */
-public class UserControllerImpl implements UserController{
+public class UserControllerImpl implements UserController {
     @Override
     public boolean login(User user) {
         return false;
@@ -18,6 +18,11 @@ public class UserControllerImpl implements UserController{
 
     @Override
     public boolean exitProgram(User user) {
+        return false;
+    }
+
+    @Override
+    public boolean stopActiveSession() {
         return false;
     }
 }

@@ -5,37 +5,16 @@ package model;
  */
 public class Player {
     private String Name;
-    private double stack;
-    private int seat;
-    private String combo;
     private Stats stats;
 
     public Player(String name) {
         Name = name;
+        stats = new Stats();
     }
 
-    public double getStack() {
-        return stack;
-    }
-
-    public void setStack(double stack) {
-        this.stack = stack;
-    }
-
-    public int getSeat() {
-        return seat;
-    }
-
-    public void setSeat(int seat) {
-        this.seat = seat;
-    }
-
-    public String getCombo() {
-        return combo;
-    }
-
-    public void setCombo(String combo) {
-        this.combo = combo;
+    public Player(String name, Stats stats) {
+        Name = name;
+        this.stats = stats;
     }
 
     @Override

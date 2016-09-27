@@ -15,7 +15,6 @@ public class Hand {
     private ShowDown showDown;
 
 
-
     public Hand(String body, long id) {
         this.body = body;
         this.id = id;
@@ -77,6 +76,7 @@ public class Hand {
             this.preflopBody = preflopBody;
         }
     }
+
     private class Flop {
         String flopBody;
 
@@ -92,6 +92,7 @@ public class Hand {
             this.flopBody = flopBody;
         }
     }
+
     private class Turn {
         String turnBody;
 
@@ -107,6 +108,7 @@ public class Hand {
             this.turnBody = turnBody;
         }
     }
+
     private class River {
         String riverBody;
 

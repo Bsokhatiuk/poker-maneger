@@ -7,7 +7,11 @@ import model.User;
  */
 public interface UserController {
     boolean login(User user);
+
     boolean startSession(User user);
+
     boolean exitProgram(User user);
+
+    boolean stopActiveSession();
 
 }
