@@ -1,5 +1,7 @@
 package model;
 
+import java.io.Serializable;
+
 /**
  * Created by lost on 27.09.2016.
  */
@@ -14,6 +16,26 @@ public class Player {
 
     public Player(String name, Stats stats) {
         Name = name;
+        this.stats = stats;
+    }
+
+    public Player() {
+
+    }
+
+    public String getName() {
+        return Name;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public Stats getStats() {
+        return stats;
+    }
+
+    public void setStats(Stats stats) {
         this.stats = stats;
     }
 

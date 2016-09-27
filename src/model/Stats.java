@@ -3,6 +3,7 @@ package model;
 
 import utils.Contants;
 
+import java.io.Serializable;
 import java.util.Map;
 import java.util.TreeMap;
 

@@ -109,6 +109,22 @@ public class IOutils {
         System.out.println(file.exists());
         return file.exists();
     }
+    public void writeInto(String path, String content) throws IOException {
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(new File(path),true));
+
+        try {
+            bufferedWriter.append(content);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                bufferedWriter.flush();
+                bufferedWriter.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
 
 }
