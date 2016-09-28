@@ -9,7 +9,7 @@ import Exception.*;
  * Created by lost on 27.09.2016.
  */
 public interface Database {
-    boolean addtoDB(Map<String, List> map, String path);
+    boolean insertfromDB(Map<String, List> map, String path);
 
     Map<String, List> selectFromDB(String path);
 

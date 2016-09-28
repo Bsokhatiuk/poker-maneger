@@ -1,11 +1,9 @@
 package container;
 
-import model.Hand;
 import model.Player;
 import utils.ContainerUtils;
-import utils.IOutils;
 
-import java.io.IOException;
+import java.io.File;
 import java.util.HashMap;
 
 /**
@@ -30,6 +28,11 @@ public class TestSaveAndLoadContainer {
         ContainerUtils<String> containerUtils =new ContainerUtils();
         containerUtils.saveContainertoFale((HashMap) playerContainers.getPlayerMap(),
                 "C:\\Users\\lost\\Desktop\\exp\\newdatabasse.txt");
+        File file=new File("C:\\Users\\lost\\Desktop\\exp\\newdatabasse.txt");
+
+        FileHandsContainers fileHandsContainers=new FileHandsContainers();
+        fileHandsContainers.add(file);
+        containerUtils.saveContainertoFale((HashMap)fileHandsContainers.getFileMap(),"C:\\Users\\lost\\Desktop\\exp\\newdatabasse.txt");
 
 
     }

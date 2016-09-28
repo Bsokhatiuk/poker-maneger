@@ -19,7 +19,7 @@ public class ImplDB implements Database {
     }
 
     @Override
-    public boolean addtoDB(Map<String, List> map, String path) {
+    public boolean insertfromDB(Map<String, List> map, String path) {
         return false;
     }
 

@@ -1,7 +1,5 @@
 package Exception;
 
-import java.io.IOException;
-
 /**
  * Created by lost on 27.09.2016.
  */

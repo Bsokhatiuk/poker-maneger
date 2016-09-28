@@ -15,9 +15,14 @@ public class Hand {
     private ShowDown showDown;
 
 
+    public Hand(String body) {
+        this.body = body;
+    }
+
     public Hand(String body, long id) {
         this.body = body;
         this.id = id;
+
     }
 
     public String getBody() {
@@ -51,15 +56,16 @@ public class Hand {
         Hand hand = (Hand) o;
 
         if (id != hand.id) return false;
+        return body != null ? body.equals(hand.body) : hand.body == null;
 
-        return true;
     }
 
     @Override
     public int hashCode() {
-        return (int) (id ^ (id >>> 32));
+        int result = body != null ? body.hashCode() : 0;
+        result = 31 * result + (int) (id ^ (id >>> 32));
+        return result;
     }
-
 
     private class Preflop {
         String preflopBody;

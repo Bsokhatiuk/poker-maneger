@@ -32,10 +32,11 @@ public class HandContainers {
         }
         return false;
     }
-    private Set<Long> getallHands(){
-        if (!handmap.isEmpty()){
-            Set<Long> allHandid=new HashSet<>();
-            return allHandid=handmap.keySet();
+
+    private Set<Long> getallHands() {
+        if (!handmap.isEmpty()) {
+            Set<Long> allHandid = new HashSet<>();
+            return allHandid = handmap.keySet();
         }
         return null;
 

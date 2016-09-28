@@ -7,7 +7,7 @@ import java.util.*;
 /**
  * Created by lost on 27.09.2016.
  */
-public class PlayerContainers{
+public class PlayerContainers {
     private Map<String, Player> playerMap;
 
     public PlayerContainers(Map<String, Player> playerMap) {
@@ -28,10 +28,11 @@ public class PlayerContainers{
     }
 
     public Set<String> getAllPlayer() {
-        if (!playerMap.isEmpty()){
-        Set<String> allPlayer=new HashSet<>();
-        allPlayer=playerMap.keySet();
-        return allPlayer;}
+        if (!playerMap.isEmpty()) {
+            Set<String> allPlayer = new HashSet<>();
+            allPlayer = playerMap.keySet();
+            return allPlayer;
+        }
         return null;
     }
 

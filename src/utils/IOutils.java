@@ -63,26 +63,29 @@ public class IOutils {
         }
         return object;
     }
+
     public List<String> find(File dir, String keyWord) {
         File dirs = new File(dir.getAbsolutePath());
         List<String> list = new ArrayList<String>();
         File[] folderEntries = dirs.listFiles();
 
         for (File entry : folderEntries) {
-            if (entry.isDirectory()==true){
-                list.addAll(find(entry,keyWord));
+            if (entry.isDirectory() == true) {
+                list.addAll(find(entry, keyWord));
             }
-            if (entry.getName().contains(keyWord)==true){
-                list.add(entry.getName());}
+            if (entry.getName().contains(keyWord) == true) {
+                list.add(entry.getName());
+            }
         }
         System.out.println(list);
         return list;
     }
+
     public void saveObjToFile(Object obj, String filePath) {
         ObjectOutputStream objectOutputStream;
 
         try {
-            objectOutputStream= new ObjectOutputStream(new FileOutputStream(new File(filePath)));
+            objectOutputStream = new ObjectOutputStream(new FileOutputStream(new File(filePath)));
             objectOutputStream.writeObject(obj);
 
         } catch (IOException e) {
@@ -91,7 +94,7 @@ public class IOutils {
     }
 
 
-    public Object[] fromFile(String path){
+    public Object[] fromFile(String path) {
         return null;
     }
 
@@ -109,8 +112,9 @@ public class IOutils {
         System.out.println(file.exists());
         return file.exists();
     }
+
     public void writeInto(String path, String content) throws IOException {
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(new File(path),true));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(new File(path), true));
 
         try {
             bufferedWriter.append(content);
@@ -126,5 +130,60 @@ public class IOutils {
         }
     }
 
+    public List<File> find(File dir) {
+        if (dir.isDirectory()) {
+            File dirs = new File(dir.getAbsolutePath());
+            List<File> list = new ArrayList<>();
+            File[] folderEntries = dirs.listFiles();
 
+            for (File entry : folderEntries) {
+                if (entry.isDirectory() == true) {
+                    list.addAll(find(entry));
+                } else if (entry.isFile()) {
+                    list.add(entry);
+                }
+            }
+            System.out.println(list);
+            return list;
+        }
+        return null;
+    }
+
+    public String less(String path) throws FileNotFoundException {
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(path)));
+        StringBuilder result = new StringBuilder();
+        String line;
+
+        try {
+            while ((line = bufferedReader.readLine()) != null)
+                result.append(line).append("\n");
+        } catch (IOException e) {
+        } finally {
+            try {
+                bufferedReader.close();
+            } catch (IOException t) {
+                t.printStackTrace();
+            }
+        }
+        return result.toString();
+    }
+    public int countLine(String path) throws FileNotFoundException {
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(path)));
+        int result=0;
+        try {
+            while (( bufferedReader.readLine()) != null) result++;
+
+        } catch (IOException e) {
+        } finally {
+            try {
+                bufferedReader.close();
+            } catch (IOException t) {
+                t.printStackTrace();
+            }
+        }
+        return result;
+    }
 }
+
+
+
