@@ -8,21 +8,16 @@ public class Hand {
     private String body;
     private long id;
     private Player[] players;
-    private Preflop preflop;
-    private Flop flop;
-    private Turn turn;
-    private River river;
-    private ShowDown showDown;
+    private String preflop;
+    private String flop;
+    private String turn;
+    private String river;
+    private String showdown;
 
 
     public Hand(String body) {
         this.body = body;
-    }
-
-    public Hand(String body, long id) {
-        this.body = body;
-        this.id = id;
-
+        setPartHand(body);
     }
 
     public String getBody() {
@@ -33,12 +28,32 @@ public class Hand {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
     public void setBody(String body) {
         this.body = body;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public String getPreflop() {
+        return preflop;
+    }
+
+    public String getFlop() {
+        return flop;
+    }
+
+    public String getTurn() {
+        return turn;
+    }
+
+    public String getRiver() {
+        return river;
+    }
+
+    public String getShowdown() {
+        return showdown;
     }
 
     @Override
@@ -55,96 +70,68 @@ public class Hand {
 
         Hand hand = (Hand) o;
 
-        if (id != hand.id) return false;
         return body != null ? body.equals(hand.body) : hand.body == null;
 
     }
 
     @Override
     public int hashCode() {
-        int result = body != null ? body.hashCode() : 0;
-        result = 31 * result + (int) (id ^ (id >>> 32));
-        return result;
+        return body.hashCode();
     }
 
-    private class Preflop {
-        String preflopBody;
+    public void setPartHand(String body) {
+        String[] stringsLine;
+        stringsLine = body.split("\n");
+        StringBuilder resultpreFlop = new StringBuilder();
+        StringBuilder resultFlop = new StringBuilder();
+        StringBuilder resultTurn = new StringBuilder();
+        StringBuilder resultRiver = new StringBuilder();
+        StringBuilder resultShowdown = new StringBuilder();
+        for (int i = 0; i < stringsLine.length; i++) {
+            if (stringsLine[i].contains("*** HOLE CARDS ***")) {
+                int j = i;
+                int k = 0;
+                while (!stringsLine[j + 1].contains("*** ")) {
+                    resultpreFlop.append(stringsLine[j]+"\n");
 
-        public Preflop(String preflopBody) {
-            this.preflopBody = preflopBody;
+                    j++;
+                }
+                if (body.contains("*** FLOP ***")) {
+                    k = j + 1;
+                    while (!stringsLine[k].contains("*** ")) {
+                        resultFlop.append(stringsLine[k]+"\n");
+                        k++;
+                    }
+                }
+                if (body.contains("*** TURN ***")) {
+                    j = k + 1;
+                    while (!stringsLine[j].contains("*** ")) {
+                        resultTurn.append(stringsLine[j]+"\n");
+                        j++;
+                    }
+                }
+                if (body.contains("*** RIVER ***")) {
+                    k = j + 1;
+                    while (!stringsLine[k].contains("*** ")) {
+                        resultRiver.append(stringsLine[k]+"\n");
+                        k++;
+                    }
+                }
+                if (body.contains("*** SHOW DOWN ***")) {
+                    j = k + 1;
+                    while (!stringsLine[j].contains("*** ")) {
+                        resultShowdown.append(stringsLine[j]+"\n");
+                        j++;
+                    }
+                }
+                break;
+            }
         }
-
-        public String getPreflopBody() {
-            return preflopBody;
-        }
-
-        public void setPreflopBody(String preflopBody) {
-            this.preflopBody = preflopBody;
-        }
-    }
-
-    private class Flop {
-        String flopBody;
-
-        public Flop(String flopBody) {
-            this.flopBody = flopBody;
-        }
-
-        public String getPreflopBody() {
-            return flopBody;
-        }
-
-        public void setflopBody(String flopBody) {
-            this.flopBody = flopBody;
-        }
-    }
-
-    private class Turn {
-        String turnBody;
-
-        public Turn(String turnBodyBody) {
-            this.turnBody = turnBody;
-        }
-
-        public String getturnBody() {
-            return turnBody;
-        }
-
-        public void setPreflopBody(String preflopBody) {
-            this.turnBody = turnBody;
-        }
-    }
-
-    private class River {
-        String riverBody;
-
-        public River(String riverBody) {
-            this.riverBody = riverBody;
-        }
-
-        public String getRiver() {
-            return riverBody;
-        }
-
-        public void setRiver(String preflopBody) {
-            this.riverBody = riverBody;
-        }
-    }
-
-    private class ShowDown {
-        String ShowDownBody;
-
-        public ShowDown(String ShowDownBody) {
-            this.ShowDownBody = ShowDownBody;
-        }
-
-        public String getShowDownBody() {
-            return ShowDownBody;
-        }
-
-        public void setShowDownBody(String ShowDownBody) {
-            this.ShowDownBody = ShowDownBody;
-        }
+        this.preflop = resultpreFlop.toString();
+        this.flop = resultFlop.toString();
+        this.turn = resultTurn.toString();
+        this.river = resultRiver.toString();
+        this.showdown = resultShowdown.toString();
     }
 
 }
