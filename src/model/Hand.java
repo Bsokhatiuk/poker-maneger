@@ -89,40 +89,43 @@ public class Hand {
         StringBuilder resultShowdown = new StringBuilder();
         for (int i = 0; i < stringsLine.length; i++) {
             if (stringsLine[i].contains("*** HOLE CARDS ***")) {
-                int j = i;
-                int k = 0;
-                while (!stringsLine[j + 1].contains("*** ")) {
-                    resultpreFlop.append(stringsLine[j]+"\n");
-
-                    j++;
+                int row = i;
+                int rownext = 0;
+                while (!stringsLine[row+1].contains("*** ")) {
+                    resultpreFlop.append(stringsLine[row] + "\n");
+                    row++;
                 }
                 if (body.contains("*** FLOP ***")) {
-                    k = j + 1;
-                    while (!stringsLine[k].contains("*** ")) {
-                        resultFlop.append(stringsLine[k]+"\n");
-                        k++;
+                    rownext = row+1;
+                    while (!stringsLine[rownext+1].contains("*** ")) {
+                        resultFlop.append(stringsLine[rownext] + "\n");
+                        rownext++;
                     }
+                    resultFlop.append(stringsLine[rownext] + "\n");
                 }
                 if (body.contains("*** TURN ***")) {
-                    j = k + 1;
-                    while (!stringsLine[j].contains("*** ")) {
-                        resultTurn.append(stringsLine[j]+"\n");
-                        j++;
+                    row = rownext+1;
+                    while (!stringsLine[row + 1].contains("*** ")) {
+                        resultTurn.append(stringsLine[row] + "\n");
+                        row++;
                     }
+                    resultTurn.append(stringsLine[row] + "\n");
                 }
                 if (body.contains("*** RIVER ***")) {
-                    k = j + 1;
-                    while (!stringsLine[k].contains("*** ")) {
-                        resultRiver.append(stringsLine[k]+"\n");
-                        k++;
+                    rownext = row + 1;
+                    while (!stringsLine[rownext+1].contains("*** ")) {
+                        resultRiver.append(stringsLine[rownext] + "\n");
+                        rownext++;
                     }
+                    resultRiver.append(stringsLine[rownext] + "\n");
                 }
                 if (body.contains("*** SHOW DOWN ***")) {
-                    j = k + 1;
-                    while (!stringsLine[j].contains("*** ")) {
-                        resultShowdown.append(stringsLine[j]+"\n");
-                        j++;
+                    row = rownext + 1;
+                    while (!stringsLine[row+1].contains("*** ")) {
+                        resultShowdown.append(stringsLine[row] + "\n");
+                        row++;
                     }
+                    resultShowdown.append(stringsLine[row] + "\n");
                 }
                 break;
             }
