@@ -35,6 +35,13 @@ public class PlayerContainers {
         }
         return null;
     }
+    public void setPlayer (Player player){
+        playerMap.replace(player.getName(),player);
+
+    }
+    public boolean containsPlayer(Player player){
+        return playerMap.containsKey(player.getName());
+    }
 
     public Map<String, Player> getPlayerMap() {
         return playerMap;

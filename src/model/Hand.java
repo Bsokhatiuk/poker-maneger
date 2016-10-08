@@ -4,7 +4,7 @@ package model;
  * Created by lost on 27.09.2016.
  */
 public class Hand {
-
+    private final int MAX_COUNT_PLAEYR = 9;
     private String body;
     private long id;
     private Player[] players;
@@ -17,8 +17,11 @@ public class Hand {
 
     public Hand(String body) {
         this.body = body;
+        players = new Player[MAX_COUNT_PLAEYR];
+        setPlayer(body);
         setPartHand(body);
     }
+
 
     public String getBody() {
         return body;
@@ -56,6 +59,10 @@ public class Hand {
         return showdown;
     }
 
+    public Player[] getPlayers() {
+        return players;
+    }
+
     @Override
     public String toString() {
         return "Hand{" +
@@ -91,20 +98,21 @@ public class Hand {
             if (stringsLine[i].contains("*** HOLE CARDS ***")) {
                 int row = i;
                 int rownext = 0;
-                while (!stringsLine[row+1].contains("*** ")) {
+                while (!stringsLine[row + 1].contains("*** ")) {
                     resultpreFlop.append(stringsLine[row] + "\n");
                     row++;
                 }
+                resultpreFlop.append(stringsLine[row] + "\n");
                 if (body.contains("*** FLOP ***")) {
-                    rownext = row+1;
-                    while (!stringsLine[rownext+1].contains("*** ")) {
+                    rownext = row + 1;
+                    while (!stringsLine[rownext + 1].contains("*** ")) {
                         resultFlop.append(stringsLine[rownext] + "\n");
                         rownext++;
                     }
                     resultFlop.append(stringsLine[rownext] + "\n");
                 }
                 if (body.contains("*** TURN ***")) {
-                    row = rownext+1;
+                    row = rownext + 1;
                     while (!stringsLine[row + 1].contains("*** ")) {
                         resultTurn.append(stringsLine[row] + "\n");
                         row++;
@@ -113,7 +121,7 @@ public class Hand {
                 }
                 if (body.contains("*** RIVER ***")) {
                     rownext = row + 1;
-                    while (!stringsLine[rownext+1].contains("*** ")) {
+                    while (!stringsLine[rownext + 1].contains("*** ")) {
                         resultRiver.append(stringsLine[rownext] + "\n");
                         rownext++;
                     }
@@ -121,7 +129,7 @@ public class Hand {
                 }
                 if (body.contains("*** SHOW DOWN ***")) {
                     row = rownext + 1;
-                    while (!stringsLine[row+1].contains("*** ")) {
+                    while (!stringsLine[row + 1].contains("*** ")) {
                         resultShowdown.append(stringsLine[row] + "\n");
                         row++;
                     }
@@ -135,6 +143,24 @@ public class Hand {
         this.turn = resultTurn.toString();
         this.river = resultRiver.toString();
         this.showdown = resultShowdown.toString();
+    }
+
+    private void setPlayer(String body) {
+        String[] stringsLine;
+        String[] playerName;
+        int i = 2;
+        int numberPlayer = 0;
+        stringsLine = body.split("\n");
+        StringBuilder resultpreFlop = new StringBuilder();
+        while (!stringsLine[i].contains("*** HOLE CARDS ***")) {
+            if (stringsLine[i].contains("Seat ")) {
+
+                playerName = stringsLine[i].split(" ");
+                players[numberPlayer] = new Player(playerName[2]);
+                numberPlayer++;
+            }
+            i++;
+        }
     }
 
 }

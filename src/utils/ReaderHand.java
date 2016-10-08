@@ -39,6 +39,7 @@ public class ReaderHand {
                 }
             return true;
         } catch (IOException e) {
+            e.printStackTrace();
 
         } finally {
             try {

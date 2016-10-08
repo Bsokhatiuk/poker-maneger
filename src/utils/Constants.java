@@ -3,7 +3,7 @@ package utils;
 /**
  * Created by lost on 27.09.2016.
  */
-public class Contants {
+public class Constants {
     enum Action {
         CALL,
         FOLD,
@@ -45,6 +45,14 @@ public class Contants {
         BTN,
         SB,
         BB
+    }
+
+    enum Bord {
+        PREFLOP,
+        FLOP,
+        TURN,
+        RIVER,
+        SHOWDOWN
     }
 
 }
