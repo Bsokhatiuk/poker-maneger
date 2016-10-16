@@ -4,6 +4,9 @@ package utils;
  * Created by lost on 27.09.2016.
  */
 public class Constants {
+    public static String FOLDER_PATH = "C:/Users/lost/Desktop/exp/poker_maneger/resources/";
+
+
     enum Action {
         CALL,
         FOLD,
@@ -20,7 +23,8 @@ public class Constants {
 
     enum CALL {
         call,
-        calls
+        calls;
+
     }
 
     enum CHECK {
@@ -28,10 +32,15 @@ public class Constants {
         checks
     }
 
-    enum Fold {
+    enum FOLD {
         fold,
         folded,
         folds
+    }
+
+    enum REISE {
+        raises,
+        raise,
     }
 
     enum Position {
@@ -47,7 +56,7 @@ public class Constants {
         BB
     }
 
-    enum Bord {
+    public enum BORD {
         PREFLOP,
         FLOP,
         TURN,

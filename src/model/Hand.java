@@ -1,13 +1,15 @@
 package model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by lost on 27.09.2016.
  */
 public class Hand {
-    private final int MAX_COUNT_PLAEYR = 9;
     private String body;
     private long id;
-    private Player[] players;
+    private List<Player> players;
     private String preflop;
     private String flop;
     private String turn;
@@ -17,8 +19,7 @@ public class Hand {
 
     public Hand(String body) {
         this.body = body;
-        players = new Player[MAX_COUNT_PLAEYR];
-        //setPlayer(body);
+        players = new ArrayList<>();
         setPartHand(body);
     }
 
@@ -57,10 +58,6 @@ public class Hand {
 
     public String getShowdown() {
         return showdown;
-    }
-
-    public Player[] getPlayers() {
-        return players;
     }
 
     @Override
@@ -149,15 +146,12 @@ public class Hand {
         String[] stringsLine;
         String[] playerName;
         int i = 2;
-        int numberPlayer = 0;
         stringsLine = body.split("\n");
-        StringBuilder resultpreFlop = new StringBuilder();
         while (!stringsLine[i].contains("*** HOLE CARDS ***")) {
             if (stringsLine[i].contains("Seat ")) {
 
                 playerName = stringsLine[i].split(" ");
-                players[numberPlayer] = new Player(playerName[2]);
-                numberPlayer++;
+                players.add(new Player(playerName[2]));
             }
             i++;
         }

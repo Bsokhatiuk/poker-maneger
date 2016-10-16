@@ -158,6 +158,7 @@ public class IOutils {
             while ((line = bufferedReader.readLine()) != null)
                 result.append(line).append("\n");
         } catch (IOException e) {
+            e.printStackTrace();
         } finally {
             try {
                 bufferedReader.close();

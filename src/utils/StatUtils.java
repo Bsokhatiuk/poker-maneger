@@ -38,7 +38,7 @@ public class StatUtils {
                 player = playerContainers.getPlayer(players[0]);
                 stats = player.getStats();
                 stats.setCountHand();
-                stats.addAction(action(preFlop[i]), "Preflop");
+                stats.addAction(action(preFlop[i]), Constants.BORD.PREFLOP);
                 player.setStats(stats);
                 playerContainers.setPlayer(player);
             }
@@ -56,7 +56,7 @@ public class StatUtils {
                         player = new Player(players[0]);
                     }
                     stats = player.getStats();
-                    stats.addAction(action(flop[i]), "Flop");
+                    stats.addAction(action(flop[i]),  Constants.BORD.FLOP);
                     player.setStats(stats);
                     playerContainers.setPlayer(player);
                 }
@@ -74,7 +74,7 @@ public class StatUtils {
                         player = new Player(players[0]);
                     }
                     stats = player.getStats();
-                    stats.addAction(action(turn[i]), "Turn");
+                    stats.addAction(action(turn[i]),  Constants.BORD.TURN);
                     player.setStats(stats);
                     playerContainers.setPlayer(player);
                 }
@@ -93,7 +93,7 @@ public class StatUtils {
                         player = new Player(players[0]);
                     }
                     stats = player.getStats();
-                    stats.addAction(action(river[i]), "River");
+                    stats.addAction(action(river[i]),  Constants.BORD.RIVER);
                     player.setStats(stats);
                     playerContainers.setPlayer(player);
                 }
@@ -103,11 +103,16 @@ public class StatUtils {
     }
 
     private int action(String str) {
-        if (str.contains(" calls ")) return 0;
-        if (str.contains(" bets ")) return 1;
-        if (str.contains(" checks ")) return 5;
-        if (str.contains(" raises ")) return 1;
-        if (str.contains(" folds ")) return 2;
+        if (str.contains(Constants.CALL.calls.toString())) return 0;
+        if (str.contains(Constants.BET.bets.toString())) return 1;
+        if (str.contains(Constants.CHECK.checks.toString())) return 5;
+        if (str.contains(Constants.REISE.raises.toString())) return 1;
+        if (str.contains(Constants.FOLD.folds.toString())) return 2;
         return -1;
     }
+
+    private void cheakAction() {
+
+    }
+
 }

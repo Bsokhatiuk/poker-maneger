@@ -11,11 +11,11 @@ import java.util.Set;
  */
 public class TestReadHandNegative {
     public static void main(String[] args) {
-        int k = 0;
+        int playercount = 0;
         ReaderHand readerHand = new ReaderHand();
         Set<Hand> resultHand = new HashSet<>();
         try {
-            readerHand.read("C:\\Users\\lost\\Desktop\\History\\Eminence_Gru\\test2.txt");
+            readerHand.read(Constants.FOLDER_PATH+ "test.txt");
             resultHand = readerHand.getHandSet();
             for (Hand parts : resultHand) {
                 System.out.println(parts.getBody());
@@ -34,12 +34,12 @@ public class TestReadHandNegative {
                 System.out.println("______________________________________________________" + "\n");
                 System.out.println("______________________________________________________" + "\n");
                 System.out.println(parts.getShowdown());
-                k++;
+                playercount++;
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        if (k == 2) {
+        if (playercount == 2) {
             System.out.println("test successful");
         }
 

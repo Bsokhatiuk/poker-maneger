@@ -1,5 +1,7 @@
 package controller;
 
+import exception.PlayerNotFoundExeption;
+import model.Player;
 import model.User;
 
 /**
@@ -13,5 +15,7 @@ public interface UserController {
     boolean exitProgram(User user);
 
     boolean stopActiveSession();
+
+    Player searchPlayer (String name) throws PlayerNotFoundExeption;
 
 }

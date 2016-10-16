@@ -22,7 +22,7 @@ public class TestStatUtils {
         PlayerContainers playerContainers= new PlayerContainers();
         StatUtils statUtils=new StatUtils(playerContainers);
         try {
-            readerHand.read("C:/Users/lost/Desktop/1/history/HanaJava/HH20161007 Aludra #2 - $0.05-$0.10 - USD No Limit Hold'em.txt");
+            readerHand.read(Constants.FOLDER_PATH+"test.txt");
             resultHand=readerHand.getHandSet();
             for (Hand parts:resultHand) {
                 statUtils.add(parts);

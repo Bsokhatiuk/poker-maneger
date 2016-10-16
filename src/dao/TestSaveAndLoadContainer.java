@@ -27,12 +27,12 @@ public class TestSaveAndLoadContainer {
 
         ContainerUtils<String> containerUtils =new ContainerUtils();
         containerUtils.saveContainertoFale((HashMap) playerContainers.getPlayerMap(),
-                "C:\\Users\\lost\\Desktop\\exp\\newdatabasse.txt");
-        File file=new File("C:\\Users\\lost\\Desktop\\exp\\newdatabasse.txt");
+                "resources/newdatabasse.txt");
+        File file=new File("resources/newdatabasse.txt");
 
         FileHandsContainers fileHandsContainers=new FileHandsContainers();
         fileHandsContainers.add(file);
-        containerUtils.saveContainertoFale((HashMap)fileHandsContainers.getFileMap(),"C:\\Users\\lost\\Desktop\\exp\\newdatabasse.txt");
+        containerUtils.saveContainertoFale((HashMap)fileHandsContainers.getFileMap(),"resources/newdatabasse.txt");
 
 
     }

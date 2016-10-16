@@ -12,12 +12,12 @@ import java.util.Set;
  */
 public class TestReadPlayerOnHand {
     public static void main(String[] args) {
-        int k = 0;
+        int playercount = 0;
         Player[] players = new Player[10];
         ReaderHand readerHand = new ReaderHand();
         Set<Hand> resultHand = new HashSet<>();
         try {
-            readerHand.read("C:\\Users\\lost\\Desktop\\History\\Eminence_Gru\\test.txt");
+            readerHand.read(Constants.FOLDER_PATH + "test.txt");
             resultHand = readerHand.getHandSet();
             for (Hand parts : resultHand) {
                 System.out.println(parts.getBody());
@@ -37,8 +37,7 @@ public class TestReadPlayerOnHand {
                 System.out.println("______________________________________________________" + "\n");
                 System.out.println(parts.getShowdown());
                 System.out.println(parts.getShowdown());
-                k++;
-                players = parts.getPlayers();
+                playercount++;
                 for (int d = 0; d < 6; d++) {
                     System.out.println(players[d].toString());
                 }
@@ -46,7 +45,7 @@ public class TestReadPlayerOnHand {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        if (k == 1) {
+        if (playercount == 1) {
             System.out.println("test successful");
         }
 

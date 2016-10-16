@@ -3,6 +3,7 @@ package utils;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -10,7 +11,6 @@ import java.util.Set;
  */
 public class ContainerUtils<T> {
     private IOutils iOutils;
-    private T t;
 
     public ContainerUtils() {
         iOutils = new IOutils();
@@ -18,9 +18,8 @@ public class ContainerUtils<T> {
 
     public boolean saveContainertoFale(HashMap map, String path) {
         if (!map.isEmpty()) {
-            Set<T> set = new HashSet<>();
-            set = map.entrySet();
-            for (T entry : set) {
+            Set<Map.Entry> set = map.entrySet();
+            for (Map.Entry entry : set) {
                 try {
                     iOutils.writeInto(path, entry.toString() + ";");
                     iOutils.writeInto(path, "\n");
@@ -30,7 +29,6 @@ public class ContainerUtils<T> {
             }
             return true;
         }
-
         return false;
     }
 

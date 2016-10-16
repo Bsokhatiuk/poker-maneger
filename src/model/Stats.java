@@ -1,5 +1,7 @@
 package model;
 
+import utils.Constants;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -79,20 +81,20 @@ public class Stats {
         countHand++;
     }
 
-    public void addAction(Integer action, String bord) {
-        if (bord.equals("Preflop")) {
+    public void addAction(Integer action, Constants.BORD bord) {
+        if (bord.equals(Constants.BORD.PREFLOP)) {
             countCall = preFlopStatistic.get(action);
             countCall++;
             preFlopStatistic.add(action, countCall);
-        } else if (bord.equals("Flop")) {
+        } else if (bord.equals(Constants.BORD.FLOP)) {
             countCall = preFlopStatistic.get(action);
             countCall++;
             flopStatistic.add(action, countCall);
-        } else if (bord.equals("Turn")) {
+        } else if (bord.equals(Constants.BORD.TURN)) {
             countCall = preFlopStatistic.get(action);
             countCall++;
             turnStatistic.add(action, countCall);
-        } else if (bord.equals("River")) {
+        } else if (bord.equals(Constants.BORD.RIVER)) {
             countCall = preFlopStatistic.get(action);
             countCall++;
             riverStatistic.add(action, countCall);
