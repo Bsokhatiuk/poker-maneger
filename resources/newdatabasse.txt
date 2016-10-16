@@ -1,0 +1,12 @@
+Call=Player{Name='Call'};
+Dady=Player{Name='Dady'};
+Back=Player{Name='Back'};
+Andry=Player{Name='Andry'};
+Send=Player{Name='Send'};
+newdatabasse.txt=132;
+Call=Player{Name='Call'};
+Dady=Player{Name='Dady'};
+Back=Player{Name='Back'};
+Andry=Player{Name='Andry'};
+Send=Player{Name='Send'};
+newdatabasse.txt=286;
