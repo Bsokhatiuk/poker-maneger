@@ -11,35 +11,35 @@ import java.util.Set;
  */
 public class TestReadHandNegative {
     public static void main(String[] args) {
-        int k=0;
+        int k = 0;
         ReaderHand readerHand = new ReaderHand();
-        Set<Hand> resultHand= new HashSet<>();
+        Set<Hand> resultHand = new HashSet<>();
         try {
             readerHand.read("C:\\Users\\lost\\Desktop\\History\\Eminence_Gru\\test2.txt");
-            resultHand=readerHand.getHandSet();
-            for (Hand parts:resultHand) {
+            resultHand = readerHand.getHandSet();
+            for (Hand parts : resultHand) {
                 System.out.println(parts.getBody());
-                System.out.println("______________________________________________________"+"\n");
-                System.out.println("______________________________________________________"+"\n");
+                System.out.println("______________________________________________________" + "\n");
+                System.out.println("______________________________________________________" + "\n");
                 System.out.println(parts.getPreflop());
-                System.out.println("______________________________________________________"+"\n");
-                System.out.println("______________________________________________________"+"\n");
+                System.out.println("______________________________________________________" + "\n");
+                System.out.println("______________________________________________________" + "\n");
                 System.out.println(parts.getFlop());
-                System.out.println("______________________________________________________"+"\n");
-                System.out.println("______________________________________________________"+"\n");
+                System.out.println("______________________________________________________" + "\n");
+                System.out.println("______________________________________________________" + "\n");
                 System.out.println(parts.getTurn());
-                System.out.println("______________________________________________________"+"\n");
-                System.out.println("______________________________________________________"+"\n");
+                System.out.println("______________________________________________________" + "\n");
+                System.out.println("______________________________________________________" + "\n");
                 System.out.println(parts.getRiver());
-                System.out.println("______________________________________________________"+"\n");
-                System.out.println("______________________________________________________"+"\n");
+                System.out.println("______________________________________________________" + "\n");
+                System.out.println("______________________________________________________" + "\n");
                 System.out.println(parts.getShowdown());
                 k++;
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        if (k==2){
+        if (k == 2) {
             System.out.println("test successful");
         }
 

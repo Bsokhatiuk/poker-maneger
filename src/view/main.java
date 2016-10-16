@@ -1,15 +1,15 @@
 package view;
 
+import exception.DataBaseCreateException;
 import db.Database;
 import db.ImplDB;
-import Exception.*;
 import model.Player;
 import utils.IOutils;
 
 /**
  * Created by lost on 27.09.2016.
  */
-public class main {
+public class Main {
     public static void main(String[] args) {
         Database database= new ImplDB();
         IOutils iOutils=new IOutils();

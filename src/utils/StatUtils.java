@@ -1,6 +1,6 @@
 package utils;
 
-import container.PlayerContainers;
+import dao.PlayerContainers;
 import model.Hand;
 import model.Player;
 import model.Stats;
@@ -46,13 +46,15 @@ public class StatUtils {
         }
 
         String floper = hand.getFlop();
-        if (floper.length()>1) {
-            flop=floper.split("\n");
+        if (floper.length() > 1) {
+            flop = floper.split("\n");
             for (int i = 1; i < flop.length; i++) {
                 if (action(flop[i]) != -1) {
                     players = (flop[i].split(":"));
                     player = playerContainers.getPlayer(players[0]);
-                    if (player==null){player=new Player(players[0]);}
+                    if (player == null) {
+                        player = new Player(players[0]);
+                    }
                     stats = player.getStats();
                     stats.addAction(action(flop[i]), "Flop");
                     player.setStats(stats);
@@ -60,15 +62,17 @@ public class StatUtils {
                 }
             }
         }
-        String turner=hand.getTurn();
+        String turner = hand.getTurn();
 
-        if (turner.length()>1) {
+        if (turner.length() > 1) {
             turn = turner.split("\n");
             for (int i = 1; i < turn.length; i++) {
                 if (action(turn[i]) != -1) {
                     players = (turn[i].split(":"));
                     player = playerContainers.getPlayer(players[0]);
-                    if (player==null){player=new Player(players[0]);}
+                    if (player == null) {
+                        player = new Player(players[0]);
+                    }
                     stats = player.getStats();
                     stats.addAction(action(turn[i]), "Turn");
                     player.setStats(stats);
@@ -77,15 +81,17 @@ public class StatUtils {
             }
         }
 
-        String riverer=hand.getRiver();
+        String riverer = hand.getRiver();
 
-        if (riverer.length()>1) {
+        if (riverer.length() > 1) {
             river = riverer.split("\n");
             for (int i = 1; i < river.length; i++) {
                 if (action(river[i]) != -1) {
                     players = (river[i].split(":"));
                     player = playerContainers.getPlayer(players[0]);
-                    if (player==null){player=new Player(players[0]);}
+                    if (player == null) {
+                        player = new Player(players[0]);
+                    }
                     stats = player.getStats();
                     stats.addAction(action(river[i]), "River");
                     player.setStats(stats);

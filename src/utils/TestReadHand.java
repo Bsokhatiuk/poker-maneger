@@ -11,35 +11,21 @@ import java.util.Set;
  */
 public class TestReadHand {
     public static void main(String[] args) {
-        int k=0;
+        int k = 0;
         ReaderHand readerHand = new ReaderHand();
-        Set<Hand> resultHand= new HashSet<>();
+        Set<Hand> resultHand = new HashSet<>();
         try {
-            readerHand.read("C:\\Users\\lost\\Desktop\\History\\Eminence_Gru\\test.txt");
-            resultHand=readerHand.getHandSet();
-            for (Hand parts:resultHand) {
+            readerHand.read("C:/Users/lost/Desktop/1/history/HanaJava/HH20161007 Aludra #2 - $0.05-$0.10 - USD No Limit Hold'em.txt");
+            resultHand = readerHand.getHandSet();
+            for (Hand parts : resultHand) {
                 System.out.println(parts.getBody());
-                System.out.println("______________________________________________________"+"\n");
-                System.out.println("______________________________________________________"+"\n");
-                System.out.println(parts.getPreflop());
-                System.out.println("______________________________________________________"+"\n");
-                System.out.println("______________________________________________________"+"\n");
-                System.out.println(parts.getFlop());
-                System.out.println("______________________________________________________"+"\n");
-                System.out.println("______________________________________________________"+"\n");
-                System.out.println(parts.getTurn());
-                System.out.println("______________________________________________________"+"\n");
-                System.out.println("______________________________________________________"+"\n");
-                System.out.println(parts.getRiver());
-                System.out.println("______________________________________________________"+"\n");
-                System.out.println("______________________________________________________"+"\n");
-                System.out.println(parts.getShowdown());
-                k++;
+                System.out.println("______________________________________" + "\n");
+
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        if (k==1){
+        if (k == 1) {
             System.out.println("test successful");
         }
 

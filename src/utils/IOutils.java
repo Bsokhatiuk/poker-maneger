@@ -167,11 +167,12 @@ public class IOutils {
         }
         return result.toString();
     }
+
     public int countLine(String path) throws FileNotFoundException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader(new File(path)));
-        int result=0;
+        int result = 0;
         try {
-            while (( bufferedReader.readLine()) != null) result++;
+            while ((bufferedReader.readLine()) != null) result++;
 
         } catch (IOException e) {
         } finally {

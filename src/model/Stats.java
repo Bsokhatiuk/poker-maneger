@@ -162,13 +162,13 @@ public class Stats {
     @Override
     public String toString() {
         return "Stats{" +
-                "countHand=" + countHand  +"\n" +" Preflop call="+preFlopStatistic.get(0)+ ", Reise= "+preFlopStatistic.get(1)+
-                ", Fold= "+preFlopStatistic.get(2)+ ", Chack= "+preFlopStatistic.get(5)+"\n"+
-                " Flop call="+flopStatistic.get(0)+ ", Reise= "+flopStatistic.get(1)+
-                ", Fold= "+flopStatistic.get(2)+ ", Chack= "+flopStatistic.get(5)+"\n"+
-                " Turn call="+turnStatistic.get(0)+ ", Reise= "+turnStatistic.get(1)+
-                ", Fold= "+turnStatistic.get(2)+ ", Chack= "+turnStatistic.get(5)+"\n"+
-                " River call="+riverStatistic.get(0)+ ", Reise= "+riverStatistic.get(1)+
-                ", Fold= "+riverStatistic.get(2)+ ", Chack= "+riverStatistic.get(5)+')';
+                "countHand=" + countHand + "\n" + " Preflop call=" + preFlopStatistic.get(0) + ", Reise= " + preFlopStatistic.get(1) +
+                ", Fold= " + preFlopStatistic.get(2) + ", Chack= " + preFlopStatistic.get(5) + "\n" +
+                " Flop call=" + flopStatistic.get(0) + ", Reise= " + flopStatistic.get(1) +
+                ", Fold= " + flopStatistic.get(2) + ", Chack= " + flopStatistic.get(5) + "\n" +
+                " Turn call=" + turnStatistic.get(0) + ", Reise= " + turnStatistic.get(1) +
+                ", Fold= " + turnStatistic.get(2) + ", Chack= " + turnStatistic.get(5) + "\n" +
+                " River call=" + riverStatistic.get(0) + ", Reise= " + riverStatistic.get(1) +
+                ", Fold= " + riverStatistic.get(2) + ", Chack= " + riverStatistic.get(5) + ')';
     }
 }

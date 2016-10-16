@@ -11,6 +11,7 @@ import java.util.Set;
  */
 public class ReaderHand {
     private Set<Hand> handSet;
+    private String[] hand;
 
     public ReaderHand() {
         handSet = new HashSet<>();
@@ -29,14 +30,13 @@ public class ReaderHand {
         String line;
         StringBuilder putHands = new StringBuilder();
         try {
-            while ((line = bufferedReader.readLine()) != null)
-                if (line.length() != 0) {
-                    putHands.append(line + "\n");
-                } else {
-                    handSet.add(new Hand(putHands.toString()));
-                    bufferedReader.readLine();
-                    bufferedReader.readLine();
-                }
+            while ((line = bufferedReader.readLine()) != null) {
+                putHands.append(line + "\n");
+            }
+            hand = putHands.toString().split("/n/n/n");
+            for (int i = 0; i < hand.length; i++)
+                handSet.add(new Hand(hand[i]));
+
             return true;
         } catch (IOException e) {
             e.printStackTrace();

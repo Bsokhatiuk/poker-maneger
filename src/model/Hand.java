@@ -18,7 +18,7 @@ public class Hand {
     public Hand(String body) {
         this.body = body;
         players = new Player[MAX_COUNT_PLAEYR];
-        setPlayer(body);
+        //setPlayer(body);
         setPartHand(body);
     }
 

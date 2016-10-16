@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-import Exception.*;
+import exception.*;
 
 /**
  * Created by lost on 27.09.2016.
@@ -15,7 +15,7 @@ public class ImplDB implements Database {
     private IOutils iOutils;
 
     public ImplDB() {
-        iOutils=new IOutils();
+        iOutils = new IOutils();
     }
 
     @Override
