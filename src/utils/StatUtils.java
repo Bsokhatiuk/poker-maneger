@@ -1,6 +1,7 @@
 package utils;
 
 import dao.PlayerContainers;
+import model.Constants;
 import model.Hand;
 import model.Player;
 import model.Stats;
@@ -19,12 +20,11 @@ public class StatUtils {
     }
 
     public void add(Hand hand) {
-
-        String players[];
-        String preFlop[];
-        String flop[];
-        String turn[];
-        String river[];
+        String[] players;
+        String[] preFlop;
+        String[] flop;
+        String[] turn;
+        String[] river;
         Player player;
         Stats stats;
         preFlop = hand.getPreflop().split("\n");
@@ -56,7 +56,7 @@ public class StatUtils {
                         player = new Player(players[0]);
                     }
                     stats = player.getStats();
-                    stats.addAction(action(flop[i]),  Constants.BORD.FLOP);
+                    stats.addAction(action(flop[i]), Constants.BORD.FLOP);
                     player.setStats(stats);
                     playerContainers.setPlayer(player);
                 }
@@ -74,7 +74,7 @@ public class StatUtils {
                         player = new Player(players[0]);
                     }
                     stats = player.getStats();
-                    stats.addAction(action(turn[i]),  Constants.BORD.TURN);
+                    stats.addAction(action(turn[i]), Constants.BORD.TURN);
                     player.setStats(stats);
                     playerContainers.setPlayer(player);
                 }
@@ -93,7 +93,7 @@ public class StatUtils {
                         player = new Player(players[0]);
                     }
                     stats = player.getStats();
-                    stats.addAction(action(river[i]),  Constants.BORD.RIVER);
+                    stats.addAction(action(river[i]), Constants.BORD.RIVER);
                     player.setStats(stats);
                     playerContainers.setPlayer(player);
                 }
@@ -110,9 +110,4 @@ public class StatUtils {
         if (str.contains(Constants.FOLD.folds.toString())) return 2;
         return -1;
     }
-
-    private void cheakAction() {
-
-    }
-
 }

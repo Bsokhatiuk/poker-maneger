@@ -5,10 +5,19 @@ package model;
  */
 public class User {
     private String login;
-    private String password;
+    protected String password;
+    private String name;
+    private String mail;
+
 
     //// TODO: 26.09.2016 user md5 for password
     public User() {
+    }
+
+    public User(String login, String name, String mail) {
+        this.login = login;
+        this.name = name;
+        this.mail = mail;
     }
 
     public User(String login, String password) {
@@ -21,16 +30,24 @@ public class User {
         return login;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
     public void setLogin(String login) {
         this.login = login;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     @Override
@@ -41,8 +58,8 @@ public class User {
         User user = (User) o;
 
         if (login != null ? !login.equals(user.login) : user.login != null) return false;
+        return password != null ? password.equals(user.password) : user.password == null;
 
-        return true;
     }
 
     @Override

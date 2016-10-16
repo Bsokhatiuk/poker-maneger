@@ -35,11 +35,13 @@ public class PlayerContainers {
         }
         return null;
     }
-    public void setPlayer (Player player){
-        playerMap.replace(player.getName(),player);
+
+    public void setPlayer(Player player) {
+        playerMap.replace(player.getName(), player);
 
     }
-    public boolean containsPlayer(Player player){
+
+    public boolean containsPlayer(Player player) {
         return playerMap.containsKey(player.getName());
     }
 

@@ -40,15 +40,12 @@ public class ReaderHand {
             return true;
         } catch (IOException e) {
             e.printStackTrace();
-
         } finally {
             try {
                 bufferedReader.close();
             } catch (IOException t) {
             }
         }
-
-
         return false;
     }
 }

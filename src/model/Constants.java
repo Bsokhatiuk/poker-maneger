@@ -1,10 +1,10 @@
-package utils;
+package model;
 
 /**
  * Created by lost on 27.09.2016.
  */
 public class Constants {
-    public static String FOLDER_PATH = "C:/Users/lost/Desktop/exp/poker_maneger/resources/";
+    public static String FOLDER_PATH;
 
 
     enum Action {
