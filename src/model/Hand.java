@@ -10,6 +10,7 @@ public class Hand {
     private String body;
     private long id;
     private List<Player> players;
+    private String infoHand;
     private String preflop;
     private String flop;
     private String turn;
@@ -38,6 +39,14 @@ public class Hand {
 
     public void setBody(String body) {
         this.body = body;
+    }
+
+    public String getInfoHand() {
+        return infoHand;
+    }
+
+    public void setInfoHand(String infoHand) {
+        this.infoHand = infoHand;
     }
 
     public String getPreflop() {
@@ -91,7 +100,10 @@ public class Hand {
         StringBuilder resultTurn = new StringBuilder();
         StringBuilder resultRiver = new StringBuilder();
         StringBuilder resultShowdown = new StringBuilder();
+        StringBuilder infoHandBuilder = new StringBuilder();
         for (int i = 0; i < stringsLine.length; i++) {
+            if (!stringsLine[i].contains("*** HOLE CARDS ***")) infoHandBuilder.append(stringsLine[i]+"\n");
+
             if (stringsLine[i].contains("*** HOLE CARDS ***")) {
                 int row = i;
                 int rownext = 0;
@@ -139,6 +151,7 @@ public class Hand {
         this.flop = resultFlop.toString();
         this.turn = resultTurn.toString();
         this.river = resultRiver.toString();
+        this.infoHand=infoHandBuilder.toString();
         this.showdown = resultShowdown.toString();
     }
 

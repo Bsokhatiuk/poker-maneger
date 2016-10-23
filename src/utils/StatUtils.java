@@ -15,99 +15,106 @@ public class StatUtils {
     public StatUtils() {
     }
 
+    public PlayerContainers getPlayerContainers() {
+        return playerContainers;
+    }
+
+    public void setPlayerContainers(PlayerContainers playerContainers) {
+        this.playerContainers = playerContainers;
+    }
+
     public StatUtils(PlayerContainers playerContainers) {
         this.playerContainers = playerContainers;
     }
 
-    public void add(Hand hand) {
-        String[] players;
-        String[] preFlop;
-        String[] flop;
-        String[] turn;
-        String[] river;
-        Player player;
-        Stats stats;
-        preFlop = hand.getPreflop().split("\n");
-        for (int i = 2; i < preFlop.length; i++) {
-            if (action(preFlop[i]) != -1) {
-                players = (preFlop[i].split(":"));
+    public void parseHand(Hand hand) {
+        String infohand = hand.getInfoHand();
+        String preflop = hand.getPreflop();
+        String flop = hand.getFlop();
+        String turn = hand.getTurn();
+        String river = hand.getRiver();
 
-                if (!playerContainers.containsPlayer(new Player(players[0]))) {
-                    playerContainers.addPlayer(new Player(players[0]));
+        String[] pars;
+        String[] PlayerName;
+        pars = infohand.split("\n");
+        for (int i = 3; i < pars.length - 2; i++) {
+            PlayerName = pars[i].split(" ");
+            countHand(PlayerName[2] + ":");
+        }
+
+        if (preflop != null) {
+            pars = preflop.split("\n");
+            for (int i = 2; i < pars.length; i++) {
+                if (parceAction(pars[i]) != null) {
+                    PlayerName = pars[i].split(" ");
+                    addStatPlayer(PlayerName[0], Constants.BORD.PREFLOP, parceAction(pars[i]));
                 }
-                player = playerContainers.getPlayer(players[0]);
-                stats = player.getStats();
-                stats.setCountHand();
-                stats.addAction(action(preFlop[i]), Constants.BORD.PREFLOP);
-                player.setStats(stats);
-                playerContainers.setPlayer(player);
+            }
+
+        }
+        if (flop != null || flop.length() > 2) {
+            pars = flop.split("\n");
+            for (int i = 1; i < pars.length; i++) {
+                if (parceAction(pars[i]) != null) {
+                    PlayerName = pars[i].split(" ");
+                    addStatPlayer(PlayerName[0], Constants.BORD.FLOP, parceAction(pars[i]));
+                }
+            }
+
+        }
+        if (turn != null || flop.length() > 2) {
+            pars = turn.split("\n");
+            for (int i = 1; i < pars.length; i++) {
+                if (parceAction(pars[i]) != null) {
+                    PlayerName = pars[i].split(" ");
+                    addStatPlayer(PlayerName[0], Constants.BORD.TURN, parceAction(pars[i]));
+                }
             }
 
         }
 
-        String floper = hand.getFlop();
-        if (floper.length() > 1) {
-            flop = floper.split("\n");
-            for (int i = 1; i < flop.length; i++) {
-                if (action(flop[i]) != -1) {
-                    players = (flop[i].split(":"));
-                    player = playerContainers.getPlayer(players[0]);
-                    if (player == null) {
-                        player = new Player(players[0]);
-                    }
-                    stats = player.getStats();
-                    stats.addAction(action(flop[i]), Constants.BORD.FLOP);
-                    player.setStats(stats);
-                    playerContainers.setPlayer(player);
-                }
-            }
-        }
-        String turner = hand.getTurn();
-
-        if (turner.length() > 1) {
-            turn = turner.split("\n");
-            for (int i = 1; i < turn.length; i++) {
-                if (action(turn[i]) != -1) {
-                    players = (turn[i].split(":"));
-                    player = playerContainers.getPlayer(players[0]);
-                    if (player == null) {
-                        player = new Player(players[0]);
-                    }
-                    stats = player.getStats();
-                    stats.addAction(action(turn[i]), Constants.BORD.TURN);
-                    player.setStats(stats);
-                    playerContainers.setPlayer(player);
-                }
-            }
-        }
-
-        String riverer = hand.getRiver();
-
-        if (riverer.length() > 1) {
-            river = riverer.split("\n");
-            for (int i = 1; i < river.length; i++) {
-                if (action(river[i]) != -1) {
-                    players = (river[i].split(":"));
-                    player = playerContainers.getPlayer(players[0]);
-                    if (player == null) {
-                        player = new Player(players[0]);
-                    }
-                    stats = player.getStats();
-                    stats.addAction(action(river[i]), Constants.BORD.RIVER);
-                    player.setStats(stats);
-                    playerContainers.setPlayer(player);
+        if (river != null || flop.length() > 2) {
+            pars = river.split("\n");
+            for (int i = 1; i < pars.length; i++) {
+                if (parceAction(pars[i]) != null) {
+                    PlayerName = pars[i].split(" ");
+                    addStatPlayer(PlayerName[0], Constants.BORD.RIVER, parceAction(pars[i]));
                 }
             }
 
         }
     }
 
-    private int action(String str) {
-        if (str.contains(Constants.CALL.calls.toString())) return 0;
-        if (str.contains(Constants.BET.bets.toString())) return 1;
-        if (str.contains(Constants.CHECK.checks.toString())) return 5;
-        if (str.contains(Constants.REISE.raises.toString())) return 1;
-        if (str.contains(Constants.FOLD.folds.toString())) return 2;
-        return -1;
+    private void addStatPlayer(String namePlayer, Constants.BORD bord, Constants.STATISTICS statistics) {
+        Player player;
+        Stats stats;
+        if (playerContainers.containsPlayer(new Player(namePlayer))) {
+            player = playerContainers.getPlayer(namePlayer);
+        } else player = new Player(namePlayer);
+        stats = player.getStats();
+        stats.addStats(bord, statistics);
+        player.setStats(stats);
+        playerContainers.setPlayer(player);
+    }
+
+    private void countHand(String namePlayer) {
+        Player player;
+        Stats stats;
+        if (playerContainers.containsPlayer(new Player(namePlayer))) {
+            player = playerContainers.getPlayer(namePlayer);
+        } else player = new Player(namePlayer);
+        stats = player.getStats();
+        stats.nextHand();
+        player.setStats(stats);
+        playerContainers.addPlayer(player);
+    }
+
+    private Constants.STATISTICS parceAction(String str) {
+        if (str.contains("fold")) return Constants.STATISTICS.CFOLD;
+        if (str.contains("checks")) return Constants.STATISTICS.CCHECK;
+        if (str.contains("bets")) return Constants.STATISTICS.CBET;
+        if (str.contains("calls")) return Constants.STATISTICS.CCALL;
+        if (str.contains("raises")) return Constants.STATISTICS.CREISE;
+        else return null;
     }
 }

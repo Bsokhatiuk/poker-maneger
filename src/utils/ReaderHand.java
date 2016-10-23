@@ -33,7 +33,7 @@ public class ReaderHand {
             while ((line = bufferedReader.readLine()) != null) {
                 putHands.append(line + "\n");
             }
-            hand = putHands.toString().split("/n/n/n");
+            hand = putHands.toString().split("\n" + "\n" + "\n");
             for (int i = 0; i < hand.length; i++)
                 handSet.add(new Hand(hand[i]));
 

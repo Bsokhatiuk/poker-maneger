@@ -23,19 +23,22 @@ public class TestStatUtils {
         PlayerContainers playerContainers= new PlayerContainers();
         StatUtils statUtils=new StatUtils(playerContainers);
         try {
-            readerHand.read(Constants.FOLDER_PATH+"test.txt");
+            readerHand.read("resources/test.txt");
             resultHand=readerHand.getHandSet();
             for (Hand parts:resultHand) {
-                statUtils.add(parts);
+                statUtils.parseHand(parts);
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+        playerContainers=statUtils.getPlayerContainers();
         playersName=playerContainers.getAllPlayer();
         for (String name:playersName) {
             player=playerContainers.getPlayer(name);
-            System.out.println(player.getName());
-            System.out.println(player.getStats().toString());
+            System.out.println(player.getName()+"{");
+            System.out.println("Total= "+player.getStats().getStats(player.getStats().getTotalStats()));
+            System.out.println("}\n");
+
         }
     }
 }

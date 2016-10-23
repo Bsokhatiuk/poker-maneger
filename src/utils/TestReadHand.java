@@ -1,6 +1,5 @@
 package utils;
 
-import model.Constants;
 import model.Hand;
 
 import java.io.FileNotFoundException;
@@ -16,7 +15,7 @@ public class TestReadHand {
         ReaderHand readerHand = new ReaderHand();
         Set<Hand> resultHand = new HashSet<>();
         try {
-            readerHand.read(Constants.FOLDER_PATH + "test.txt");
+            readerHand.read("resources/test.txt");
             resultHand = readerHand.getHandSet();
             for (Hand parts : resultHand) {
                 System.out.println(parts.getBody());

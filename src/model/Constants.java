@@ -7,7 +7,7 @@ public class Constants {
     public static String FOLDER_PATH;
 
 
-    enum Action {
+    public enum Action {
         CALL,
         FOLD,
         CHEACK,
@@ -16,34 +16,34 @@ public class Constants {
         SHOW
     }
 
-    enum BET {
+    public enum BET {
         bet,
         bets
     }
 
-    enum CALL {
+    public enum CALL {
         call,
         calls;
 
     }
 
-    enum CHECK {
+    public enum CHECK {
         check,
         checks
     }
 
-    enum FOLD {
+    public enum FOLD {
         fold,
         folded,
         folds
     }
 
-    enum REISE {
+    public enum REISE {
         raises,
         raise,
     }
 
-    enum Position {
+    public enum Position {
         UTG,
         UTG1,
         UTG2,
@@ -63,5 +63,18 @@ public class Constants {
         RIVER,
         SHOWDOWN
     }
+
+
+    public enum STATISTICS{
+        COUNTHAND,
+        CREISE,
+        CFOLD,
+        C3Bet,
+        CCHECK,
+        CBET,
+        CCHECKREISE,
+        CCALL
+    }
+
 
 }

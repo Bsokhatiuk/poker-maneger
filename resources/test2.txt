@@ -1,0 +1,107 @@
+﻿PokerStars Zoom Hand #159997367517:  Hold'em No Limit ($0.05/$0.10) - 2016/10/16 3:12:39 ET
+Table 'Aludra' 6-max Seat #1 is the button
+Seat 1: komarov87 ($12.82 in chips) 
+Seat 2: Sanecem ($23.90 in chips) 
+Seat 3: HanaJava ($10 in chips) 
+Seat 4: Zolica1994 ($10.48 in chips) 
+Seat 5: 4nicholas4 ($9.85 in chips) 
+Seat 6: AndreiEP ($12.77 in chips) 
+Sanecem: posts small blind $0.05
+HanaJava: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to HanaJava [Kd 8d]
+Zolica1994: folds 
+4nicholas4: folds 
+AndreiEP: folds 
+komarov87: folds 
+Sanecem: folds 
+Uncalled bet ($0.05) returned to HanaJava
+HanaJava collected $0.10 from pot
+HanaJava: doesn't show hand 
+*** SUMMARY ***
+Total pot $0.10 | Rake $0 
+Seat 1: komarov87 (button) folded before Flop (didn't bet)
+Seat 2: Sanecem (small blind) folded before Flop
+Seat 3: HanaJava (big blind) collected ($0.10)
+Seat 4: Zolica1994 folded before Flop (didn't bet)
+Seat 5: 4nicholas4 folded before Flop (didn't bet)
+Seat 6: AndreiEP folded before Flop (didn't bet)
+
+
+
+PokerStars Zoom Hand #159997371596:  Hold'em No Limit ($0.05/$0.10) - 2016/10/16 3:12:54 ET
+Table 'Aludra' 6-max Seat #1 is the button
+Seat 1: MartinezLara ($10.13 in chips) 
+Seat 2: HanaJava ($10.05 in chips) 
+Seat 3: agrioskylo ($11.12 in chips) 
+Seat 4: plasma_87 ($8.72 in chips) 
+Seat 5: SLeiti ($20.73 in chips) 
+Seat 6: drich99 ($10.50 in chips) 
+HanaJava: posts small blind $0.05
+agrioskylo: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to HanaJava [Js 2d]
+plasma_87: folds 
+SLeiti: folds 
+drich99: folds 
+MartinezLara: raises $0.15 to $0.25
+HanaJava: folds 
+agrioskylo: calls $0.15
+*** FLOP *** [8d 6d Ks]
+agrioskylo: checks 
+MartinezLara: bets $0.53
+agrioskylo: folds 
+Uncalled bet ($0.53) returned to MartinezLara
+MartinezLara collected $0.53 from pot
+MartinezLara: doesn't show hand 
+*** SUMMARY ***
+Total pot $0.55 | Rake $0.02 
+Board [8d 6d Ks]
+Seat 1: MartinezLara (button) collected ($0.53)
+Seat 2: HanaJava (small blind) folded before Flop
+Seat 3: agrioskylo (big blind) folded on the Flop
+Seat 4: plasma_87 folded before Flop (didn't bet)
+Seat 5: SLeiti folded before Flop (didn't bet)
+Seat 6: drich99 folded before Flop (didn't bet)
+
+
+
+PokerStars Zoom Hand #159997370270:  Hold'em No Limit ($0.05/$0.10) - 2016/10/16 3:12:49 ET
+Table 'Aludra' 6-max Seat #1 is the button
+Seat 1: HanaJava ($10.05 in chips) 
+Seat 2: Donic174 ($52.31 in chips) 
+Seat 3: Shokhinlesha ($38.59 in chips) 
+Seat 4: MartinezLara ($10.13 in chips) 
+Seat 5: Koalamb12 ($17.58 in chips) 
+Seat 6: ScotiS ($10.33 in chips) 
+Donic174: posts small blind $0.05
+Shokhinlesha: posts big blind $0.10
+*** HOLE CARDS ***
+Dealt to HanaJava [7c Td]
+MartinezLara: folds 
+Koalamb12: folds 
+ScotiS: raises $0.20 to $0.30
+HanaJava: folds 
+Donic174: folds 
+Shokhinlesha: calls $0.20
+*** FLOP *** [3d Ah 8s]
+Shokhinlesha: checks 
+ScotiS: checks 
+*** TURN *** [3d Ah 8s] [6d]
+Shokhinlesha: checks 
+ScotiS: bets $0.35
+Shokhinlesha: folds 
+Uncalled bet ($0.35) returned to ScotiS
+ScotiS collected $0.62 from pot
+ScotiS: doesn't show hand 
+*** SUMMARY ***
+Total pot $0.65 | Rake $0.03 
+Board [3d Ah 8s 6d]
+Seat 1: HanaJava (button) folded before Flop (didn't bet)
+Seat 2: Donic174 (small blind) folded before Flop
+Seat 3: Shokhinlesha (big blind) folded on the Turn
+Seat 4: MartinezLara folded before Flop (didn't bet)
+Seat 5: Koalamb12 folded before Flop (didn't bet)
+Seat 6: ScotiS collected ($0.62)
+
+

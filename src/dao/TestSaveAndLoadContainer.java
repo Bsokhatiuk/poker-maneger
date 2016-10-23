@@ -25,7 +25,7 @@ public class TestSaveAndLoadContainer {
         playerContainers.addPlayer(player5);
 
 
-        ContainerUtils<String> containerUtils =new ContainerUtils();
+        ContainerUtils containerUtils =new ContainerUtils();
         containerUtils.saveContainertoFale((HashMap) playerContainers.getPlayerMap(),
                 "resources/newdatabasse.txt");
         File file=new File("resources/newdatabasse.txt");
