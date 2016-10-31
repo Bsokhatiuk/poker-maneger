@@ -1,10 +1,10 @@
-package view;
+package java.view;
 
-import exception.DataBaseCreateException;
-import db.Database;
-import db.ImplDB;
-import model.Player;
-import utils.IOutils;
+import java.exception.DataBaseCreateException;
+import java.db.Database;
+import java.db.ImplDB;
+import java.model.Player;
+import java.utils.IOutils;
 
 /**
  * Created by lost on 27.09.2016.

@@ -1,4 +1,4 @@
-package exception;
+package java.exception;
 
 /**
  * Created by lost on 27.09.2016.
